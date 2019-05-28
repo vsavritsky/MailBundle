@@ -1,10 +1,10 @@
 {
-    "name": "extellient/mail-bundle",
+    "name": "vsavritsky/mail-bundle",
     "description": "Mail manager",
     "type": "symfony-bundle",
     "require": {
         "php": ">=7.0",
-        "psr/log": "1.0.*",
+        "psr/log": "1.1.*",
         "doctrine/orm": "^2.4.8",
         "doctrine/doctrine-bundle": "~1.4",
         "symfony/swiftmailer-bundle": "~2.3|^3.0",
