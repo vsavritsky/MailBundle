@@ -17,11 +17,11 @@
             <argument type="service" id="logger"/>
         </service>
         <service id="Extellient\MailBundle\Repository\MailTemplateRepository">
-            <argument type="service" id="Symfony\Bridge\Doctrine\RegistryInterface"/>
+            <argument type="service" id="Doctrine\Persistence\ManagerRegistry"/>
             <tag name="doctrine.repository_service"/>
         </service>
         <service id="Extellient\MailBundle\Repository\MailRepository">
-            <argument type="service" id="Symfony\Bridge\Doctrine\RegistryInterface"/>
+            <argument type="service" id="Doctrine\Persistence\ManagerRegistry"/>
             <tag name="doctrine.repository_service"/>
         </service>
         <service id="Extellient\MailBundle\Services\MailBuilder"/>

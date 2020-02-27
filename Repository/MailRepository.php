@@ -4,7 +4,7 @@ namespace Extellient\MailBundle\Repository;
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Extellient\MailBundle\Entity\Mail;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * Class MailRepository.
@@ -14,9 +14,9 @@ class MailRepository extends ServiceEntityRepository
     /**
      * MailRepository constructor.
      *
-     * @param RegistryInterface $registry
+     * @param ManagerRegistry $registry
      */
-    public function __construct(RegistryInterface $registry)
+    public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Mail::class);
     }
