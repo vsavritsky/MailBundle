@@ -18,6 +18,13 @@ class Mail implements MailInterface
      * @ORM\Column(type="integer")
      */
     protected $id;
+    
+    /**
+     * @var string
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $externalId;
+    
     /**
      * @var string
      * @ORM\Column(name="subject", type="string", length=255)
@@ -108,6 +115,22 @@ class Mail implements MailInterface
     public function setId($id)
     {
         $this->id = $id;
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getExternalId()
+    {
+        return $this->externalId;
+    }
+    
+    /**
+     * @param mixed $externalId
+     */
+    public function setExternalId($externalId): void
+    {
+        $this->externalId = $externalId;
     }
 
     /**

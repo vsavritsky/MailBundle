@@ -38,13 +38,14 @@ class Mailer
      * @param $subject
      * @param $body
      * @param $recipients
+     * @param $externalId
      * @param array $attachements
      *
      * @return Mail
      */
-    public function createEmail($subject, $body, $recipients, $attachements = [])
+    public function createEmail($subject, $body, $recipients, $externalId, $attachements = [])
     {
-        return $this->mailBuilder->createEmail($subject, $body, $recipients, $attachements);
+        return $this->mailBuilder->createEmail($subject, $body, $recipients, $externalId, $attachements);
     }
 
     /**

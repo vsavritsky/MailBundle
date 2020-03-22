@@ -48,6 +48,7 @@ class MailTemplating implements MailTemplatingInterface
     public function createEmail(
         $templateCode,
         $recipients,
+        $externalId,
         array $variables = [],
         $attachements = []
     ) {
@@ -57,6 +58,7 @@ class MailTemplating implements MailTemplatingInterface
             $template->getSubject($variables),
             $template->getBody($variables),
             $recipients,
+            $externalId,
             $attachements
         );
     }

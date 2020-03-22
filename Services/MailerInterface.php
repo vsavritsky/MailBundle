@@ -14,7 +14,7 @@ interface MailerInterface
      *
      * @return MailInterface
      */
-    public function createEmail($subject, $body, $recipients, $attachements);
+    public function createEmail($subject, $body, $recipients, $externalId, $attachements);
 
     /**
      * @return MailInterface

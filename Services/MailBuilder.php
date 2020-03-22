@@ -33,7 +33,7 @@ class MailBuilder
      *
      * @return Mail
      */
-    public function createEmail($subject, $body, $recipients, $attachements = [])
+    public function createEmail($subject, $body, $recipients, $externalId, $attachements = [])
     {
         if (!is_array($recipients)) {
             $recipients = [$recipients];
@@ -54,6 +54,8 @@ class MailBuilder
         if (!empty($this->mailReplyTo)) {
             $mail->setReplyToEmail($this->mailReplyTo);
         }
+        
+        $mail->setExternalId($externalId);
 
         $mail->setAttachements($attachements);
 

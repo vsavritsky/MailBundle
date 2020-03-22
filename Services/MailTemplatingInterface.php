@@ -12,5 +12,5 @@ interface MailTemplatingInterface
      *
      * @return mixed
      */
-    public function createEmail($templateCode, $recipients, array $variables = [], $attachements = []);
+    public function createEmail($templateCode, $recipients, $externalId, array $variables = [], $attachements = []);
 }
