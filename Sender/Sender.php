@@ -71,11 +71,13 @@ class Sender
      */
     public function sendOne(MailInterface $mail)
     {
+        $mail->setRecipient(array_filter($mail->getRecipient())); 
+        
         try {
             $this->mailSender->send($mail);
             $mail->updateSentDate();
             $this->logger->info('The mail has been sent', $this->getLogData($mail));
-        } catch (MailSenderException $exception) {
+        } catch (Throwable $exception) {
             $this->logger->error($exception->getMessage(), [
                 $this->getLogData($mail),
             ]);
