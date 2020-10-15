@@ -74,6 +74,17 @@ class Sender
         $mail->setRecipient(array_filter($mail->getRecipient())); 
         
         try {
+            $recipients = $mail->getRecipient();
+            foreach ($recipients as $key => $email) {
+                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    unset($recipients[$key]);
+                }
+            }
+            
+            if (!$recipients) {
+                throw MailSenderException('Empty email list');
+            }
+			
             $this->mailSender->send($mail);
             $mail->updateSentDate();
             $this->logger->info('The mail has been sent', $this->getLogData($mail));
