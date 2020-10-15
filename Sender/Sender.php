@@ -81,13 +81,16 @@ class Sender
                 }
             }
             
-            if (!$recipients) {
-                throw MailSenderException('Empty email list');
-            }
-			
-            $this->mailSender->send($mail);
-            $mail->updateSentDate();
-            $this->logger->info('The mail has been sent', $this->getLogData($mail));
+            if (!empty($recipients)) {
+                $this->mailSender->send($mail);
+				$mail->updateSentDate();
+				$this->logger->info('The mail has been sent', $this->getLogData($mail));
+            } else {
+				$this->logger->error('Empty correct email list', [
+					$this->getLogData($mail),
+				]);
+				$mail->setSentError(true);
+			}
         } catch (Throwable $exception) {
             $this->logger->error($exception->getMessage(), [
                 $this->getLogData($mail),
